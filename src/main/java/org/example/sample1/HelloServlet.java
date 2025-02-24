@@ -24,6 +24,12 @@ public class HelloServlet extends HttpServlet {
         Gson gson = new Gson();
         String json = gson.toJson(dataMap); //객체를 JSON으로 만들고 있음
 
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         // Hello
         PrintWriter out = response.getWriter();
         out.println(json);
